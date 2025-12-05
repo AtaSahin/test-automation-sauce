@@ -1,5 +1,6 @@
 # SauceDemo Test Automation Framework
 
+CI/CD Pipeline
 [![Python Version](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/downloads/)
 [![Selenium](https://img.shields.io/badge/selenium-4.x-green)](https://www.selenium.dev/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -11,8 +12,7 @@ Professional end-to-end test automation framework for [SauceDemo](https://www.sa
 
 ## Reporting
 
-![Allure Report Dashboard](docs/images/allureReport_1.png)
-![Allure Report Suites](docs/images/allureReport_2.png)
+Allure Report Overview
 
 Detailed report view generated after example test run.
 
@@ -255,13 +255,6 @@ The pipeline is configured to run automatically on GitHub Actions.
 
 ## Docker Support
 
-### Why Docker?
-
-- **Consistent Environment** - Same setup across all machines
-- **No Local Dependencies** - Chrome, ChromeDriver included
-- **CI/CD Ready** - Perfect for automated pipelines
-- **Isolated Execution** - No conflicts with local setup
-
 ### Docker Commands
 
 ```bash
@@ -310,9 +303,6 @@ docker-compose down
 - Timeline showing execution timeline for performance analysis
 - Test Suites organized by features and stories
 
-### Sample Report
-
-![Allure Report](docs/images/allure-report-overview.png)
 
 ---
 
