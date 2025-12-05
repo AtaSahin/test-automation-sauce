@@ -9,11 +9,12 @@ Professional end-to-end test automation framework for [SauceDemo](https://www.sa
 
 ---
 
-## Test Execution Report
+## Reporting
 
-![Allure Report Overview](docs/images/allure-report-overview.png)
+![Allure Report Dashboard](docs/images/allureReport_1.png)
+![Allure Report Suites](docs/images/allureReport_2.png)
 
-Example test execution report with detailed metrics, trends, and failure analysis.
+Detailed report view generated after example test run.
 
 ---
 
