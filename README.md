@@ -12,7 +12,7 @@ Professional end-to-end test automation framework for [SauceDemo](https://www.sa
 
 ## Reporting
 
-![Allure Report Dashboard](docs/images/allureReport_1.png)
+
 ![Allure Report Suites](docs/images/allureReport_2.png)
 
 Detailed report view generated after example test run.
