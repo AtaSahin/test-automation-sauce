@@ -1,53 +1,54 @@
-# 🧪 SauceDemo Test Automation Framework
+# SauceDemo Test Automation Framework
 
-[![CI/CD Pipeline](https://github.com/YOUR_USERNAME/sauce-test-automation/actions/workflows/tests.yml/badge.svg)](https://github.com/YOUR_USERNAME/sauce-test-automation/actions)
+[![CI/CD Pipeline](https://github.com/AtaSahin/sauce-test-automation/actions/workflows/tests.yml/badge.svg)](https://github.com/AtaSahin/sauce-test-automation/actions)
 [![Python Version](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/downloads/)
 [![Selenium](https://img.shields.io/badge/selenium-4.x-green)](https://www.selenium.dev/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Test Coverage](https://img.shields.io/badge/tests-125%2B-success)](tests/)
 
-> **Professional end-to-end test automation framework** for [SauceDemo](https://www.saucedemo.com) e-commerce application, demonstrating advanced QA automation skills including accessibility testing, security validation, state management, and CI/CD integration.
+Professional end-to-end test automation framework for [SauceDemo](https://www.saucedemo.com) e-commerce application, demonstrating advanced QA automation skills including accessibility testing, security validation, state management, and CI/CD integration.
 
 ---
 
-## 📊 Test Execution Report
+## Test Execution Report
 
 ![Allure Report Overview](docs/images/allure-report-overview.png)
-*Example test execution report with detailed metrics, trends, and failure analysis*
+
+Example test execution report with detailed metrics, trends, and failure analysis.
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 🏗️ **Architecture & Design Patterns**
-- ✅ **Page Object Model (POM)** - Maintainable and scalable test structure
-- ✅ **Explicit Waits** - Reliable synchronization without hard-coded sleeps
-- ✅ **Type Hinting** - Enhanced code quality and IDE support
-- ✅ **Fixture-based Setup** - Efficient resource management with pytest
+### Architecture & Design Patterns
+- Page Object Model (POM) for maintainable test structure
+- Explicit waits for reliable synchronization
+- Type hinting for enhanced code quality
+- Fixture-based setup with pytest
 
-### 🧪 **Comprehensive Test Coverage (125+ Tests)**
-- ✅ **User Type Testing** - All 6 user personas (standard, locked, problem, performance, error, visual)
-- ✅ **Accessibility Testing** - WCAG compliance, keyboard navigation, screen reader support
-- ✅ **Security Testing** - SQL injection, XSS prevention, session management
-- ✅ **State Management** - Cart persistence, browser navigation, multi-tab behavior
-- ✅ **UI/UX Validation** - Responsive design, mobile/tablet viewports
-- ✅ **Data Integrity** - Price calculations, tax validation, cart totals
+### Comprehensive Test Coverage (125+ Tests)
+- **User Type Testing** - All 6 user personas (standard, locked, problem, performance, error, visual)
+- **Accessibility Testing** - WCAG compliance, keyboard navigation, screen reader support
+- **Security Testing** - SQL injection, XSS prevention, session management
+- **State Management** - Cart persistence, browser navigation, multi-tab behavior
+- **UI/UX Validation** - Responsive design, mobile/tablet viewports
+- **Data Integrity** - Price calculations, tax validation, cart totals
 
-### 📈 **Reporting & Monitoring**
-- ✅ **Allure Reports** - Rich, interactive HTML reports with screenshots
-- ✅ **Real-time Logging** - Detailed execution logs with timestamps
-- ✅ **Failure Screenshots** - Automatic capture on test failures
-- ✅ **Test Metrics** - Execution time, pass/fail rates, trends
+### Reporting & Monitoring
+- Allure Reports with interactive HTML output
+- Real-time logging with timestamps
+- Automatic screenshot capture on failures
+- Test metrics including execution time and pass/fail rates
 
-### 🚀 **CI/CD & DevOps**
-- ✅ **GitHub Actions** - Automated testing on every push
-- ✅ **Docker Support** - Containerized test execution
-- ✅ **Parallel Execution** - Faster test runs with pytest-xdist
-- ✅ **Scheduled Runs** - Daily automated test execution
+### CI/CD & DevOps
+- GitHub Actions for automated testing on every push
+- Docker support for containerized execution
+- Parallel execution with pytest-xdist
+- Scheduled daily test runs
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 sauce-test-automation/
@@ -68,10 +69,10 @@ sauce-test-automation/
 │   ├── test_e2e.py             # End-to-end scenarios
 │   ├── test_advanced.py        # Complex business logic
 │   ├── test_performance.py     # Performance benchmarks
-│   ├── test_user_types.py      # User persona testing ⭐ NEW
-│   ├── test_accessibility_ui.py # Accessibility & UI/UX ⭐ NEW
-│   ├── test_security_validation.py # Security testing ⭐ NEW
-│   └── test_state_browser.py   # State & browser behavior ⭐ NEW
+│   ├── test_user_types.py      # User persona testing
+│   ├── test_accessibility_ui.py # Accessibility & UI/UX
+│   ├── test_security_validation.py # Security testing
+│   └── test_state_browser.py   # State & browser behavior
 ├── config.py                    # Centralized configuration
 ├── conftest.py                  # Pytest fixtures & hooks
 ├── pytest.ini                   # Pytest configuration
@@ -83,13 +84,13 @@ sauce-test-automation/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
-### **Option 1: Local Setup**
+### Option 1: Local Setup
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/sauce-test-automation.git
+git clone https://github.com/AtaSahin/sauce-test-automation.git
 cd sauce-test-automation
 
 # Create virtual environment
@@ -106,7 +107,7 @@ pytest tests/ -v
 allure serve allure-results
 ```
 
-### **Option 2: Docker (Recommended for CI/CD)**
+### Option 2: Docker (Recommended for CI/CD)
 
 ```bash
 # Build Docker image
@@ -123,9 +124,9 @@ docker-compose up
 
 ---
 
-## 🧪 Running Tests
+## Running Tests
 
-### **By Test Category**
+### By Test Category
 
 ```bash
 # Smoke tests (critical functionality)
@@ -147,7 +148,7 @@ pytest tests/test_user_types.py -v
 pytest tests/test_state_browser.py -v
 ```
 
-### **By User Type**
+### By User Type
 
 ```bash
 # Test with specific user
@@ -156,14 +157,14 @@ pytest tests/ -v --user-type=problem
 pytest tests/ -v --user-type=performance_glitch
 ```
 
-### **Parallel Execution**
+### Parallel Execution
 
 ```bash
 # Run tests in parallel (4 workers)
 pytest tests/ -n 4 -v
 ```
 
-### **With Allure Reporting**
+### With Allure Reporting
 
 ```bash
 # Run tests and generate Allure report
@@ -173,28 +174,28 @@ allure serve allure-results
 
 ---
 
-## 📊 Test Categories & Coverage
+## Test Categories & Coverage
 
 | Category | Tests | Description |
 |----------|-------|-------------|
-| **Authentication** | 12 | Login, logout, session management |
-| **Product Catalog** | 15 | Browsing, filtering, sorting |
-| **Shopping Cart** | 18 | Add/remove items, cart persistence |
-| **Checkout** | 20 | Purchase flow, form validation |
-| **User Types** | 16 | All 6 user personas |
-| **Accessibility** | 18 | WCAG, keyboard navigation, responsive |
-| **Security** | 18 | SQL injection, XSS, session security |
-| **State Management** | 15 | Cart persistence, browser navigation |
-| **Performance** | 8 | Load times, response benchmarks |
-| **E2E Scenarios** | 10 | Complete user journeys |
+| Authentication | 12 | Login, logout, session management |
+| Product Catalog | 15 | Browsing, filtering, sorting |
+| Shopping Cart | 18 | Add/remove items, cart persistence |
+| Checkout | 20 | Purchase flow, form validation |
+| User Types | 16 | All 6 user personas |
+| Accessibility | 18 | WCAG, keyboard navigation, responsive |
+| Security | 18 | SQL injection, XSS, session security |
+| State Management | 15 | Cart persistence, browser navigation |
+| Performance | 8 | Load times, response benchmarks |
+| E2E Scenarios | 10 | Complete user journeys |
 
 **Total: 125+ comprehensive test cases**
 
 ---
 
-## 🔧 Configuration
+## Configuration
 
-### **Environment Variables**
+### Environment Variables
 
 Create a `.env` file in the project root:
 
@@ -221,48 +222,48 @@ SCREENSHOT_ON_FAILURE=true
 ALLURE_RESULTS_DIR=allure-results
 ```
 
-### **Browser Configuration**
+### Browser Configuration
 
 Supported browsers:
-- ✅ Chrome (default)
-- ✅ Firefox
-- ✅ Edge
-- ✅ Safari (macOS only)
+- Chrome (default)
+- Firefox
+- Edge
+- Safari (macOS only)
 
 ---
 
-## 📈 CI/CD Pipeline
+## CI/CD Pipeline
 
-### **GitHub Actions Workflow**
+### GitHub Actions Workflow
 
 The project includes a comprehensive CI/CD pipeline that:
 
-1. **Runs on every push** to main/master branches
-2. **Tests multiple Python versions** (3.11, 3.12)
-3. **Executes smoke tests** first for fast feedback
-4. **Runs full regression suite** for comprehensive coverage
-5. **Generates Allure reports** automatically
-6. **Deploys reports to GitHub Pages** for easy access
-7. **Runs daily scheduled tests** at 2 AM UTC
+1. Runs on every push to main/master branches
+2. Tests multiple Python versions (3.11, 3.12)
+3. Executes smoke tests first for fast feedback
+4. Runs full regression suite for comprehensive coverage
+5. Generates Allure reports automatically
+6. Deploys reports to GitHub Pages for easy access
+7. Runs daily scheduled tests at 2 AM UTC
 
-**View live test results:** `https://YOUR_USERNAME.github.io/sauce-test-automation/`
+**View live test results:** `https://AtaSahin.github.io/sauce-test-automation/`
 
-### **Pipeline Status**
+### Pipeline Status
 
-![CI/CD Pipeline](https://github.com/YOUR_USERNAME/sauce-test-automation/actions/workflows/tests.yml/badge.svg)
+![CI/CD Pipeline](https://github.com/AtaSahin/sauce-test-automation/actions/workflows/tests.yml/badge.svg)
 
 ---
 
-## 🐳 Docker Support
+## Docker Support
 
-### **Why Docker?**
+### Why Docker?
 
-- ✅ **Consistent Environment** - Same setup across all machines
-- ✅ **No Local Dependencies** - Chrome, ChromeDriver included
-- ✅ **CI/CD Ready** - Perfect for automated pipelines
-- ✅ **Isolated Execution** - No conflicts with local setup
+- **Consistent Environment** - Same setup across all machines
+- **No Local Dependencies** - Chrome, ChromeDriver included
+- **CI/CD Ready** - Perfect for automated pipelines
+- **Isolated Execution** - No conflicts with local setup
 
-### **Docker Commands**
+### Docker Commands
 
 ```bash
 # Build image
@@ -281,7 +282,7 @@ docker run --rm -e HEADLESS=true -e BROWSER=chrome saucedemo-tests
 docker run --rm -v $(pwd)/allure-results:/app/allure-results saucedemo-tests
 ```
 
-### **Docker Compose**
+### Docker Compose
 
 ```bash
 # Start all services (tests + Allure server)
@@ -299,26 +300,26 @@ docker-compose down
 
 ---
 
-## 📸 Test Reports
+## Test Reports
 
-### **Allure Report Features**
+### Allure Report Features
 
-- 📊 **Overview Dashboard** - Test execution summary with graphs
-- 📈 **Trends** - Historical test results and stability metrics
-- 🔍 **Detailed Steps** - Step-by-step test execution with screenshots
-- 🐛 **Failure Analysis** - Categorized failures with stack traces
-- ⏱️ **Timeline** - Execution timeline for performance analysis
-- 📦 **Test Suites** - Organized by features and stories
+- Overview Dashboard with test execution summary and graphs
+- Trends showing historical test results and stability metrics
+- Detailed Steps with step-by-step test execution and screenshots
+- Failure Analysis with categorized failures and stack traces
+- Timeline showing execution timeline for performance analysis
+- Test Suites organized by features and stories
 
-### **Sample Report**
+### Sample Report
 
 ![Allure Report](docs/images/allure-report-overview.png)
 
 ---
 
-## 🎯 Advanced Features
+## Advanced Features
 
-### **1. Parametrized Testing**
+### 1. Parametrized Testing
 
 ```python
 @pytest.mark.parametrize("user_type", ["standard", "problem", "performance_glitch"])
@@ -327,7 +328,7 @@ def test_all_users_can_login(user_type):
     pass
 ```
 
-### **2. Custom Markers**
+### 2. Custom Markers
 
 ```python
 @pytest.mark.smoke
@@ -336,14 +337,14 @@ def test_login():
     pass
 ```
 
-### **3. Automatic Screenshots on Failure**
+### 3. Automatic Screenshots on Failure
 
 ```python
 # Configured in conftest.py
 # Screenshots automatically attached to Allure reports
 ```
 
-### **4. Browser Console Error Detection**
+### 4. Browser Console Error Detection
 
 ```python
 # Checks for JavaScript errors in browser console
@@ -353,9 +354,9 @@ severe_errors = [log for log in logs if log['level'] == 'SEVERE']
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! Please follow these steps:
+Contributions are welcome. Please follow these steps:
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -365,53 +366,52 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📝 Best Practices Implemented
+## Best Practices Implemented
 
-- ✅ **DRY Principle** - No code duplication
-- ✅ **SOLID Principles** - Clean, maintainable code
-- ✅ **Explicit Waits** - No `time.sleep()` calls
-- ✅ **Page Object Model** - Separation of concerns
-- ✅ **Type Hints** - Better code documentation
-- ✅ **Comprehensive Logging** - Detailed execution logs
-- ✅ **Error Handling** - Graceful failure management
-- ✅ **Test Independence** - Tests can run in any order
-- ✅ **Data-Driven Testing** - External test data management
+- DRY Principle - No code duplication
+- SOLID Principles - Clean, maintainable code
+- Explicit Waits - No `time.sleep()` calls
+- Page Object Model - Separation of concerns
+- Type Hints - Better code documentation
+- Comprehensive Logging - Detailed execution logs
+- Error Handling - Graceful failure management
+- Test Independence - Tests can run in any order
+- Data-Driven Testing - External test data management
 
 ---
 
-## 🏆 Skills Demonstrated
+## Skills Demonstrated
 
 This project showcases expertise in:
 
-- ✅ **Test Automation** - Selenium WebDriver, Pytest
-- ✅ **Page Object Model** - Design patterns
-- ✅ **CI/CD** - GitHub Actions, Docker
-- ✅ **Accessibility Testing** - WCAG compliance
-- ✅ **Security Testing** - SQL injection, XSS prevention
-- ✅ **Performance Testing** - Load time benchmarks
-- ✅ **API Testing** - REST API validation (if applicable)
-- ✅ **DevOps** - Docker, containerization
-- ✅ **Reporting** - Allure, HTML reports
-- ✅ **Version Control** - Git, GitHub
+- Test Automation - Selenium WebDriver, Pytest
+- Page Object Model - Design patterns
+- CI/CD - GitHub Actions, Docker
+- Accessibility Testing - WCAG compliance
+- Security Testing - SQL injection, XSS prevention
+- Performance Testing - Load time benchmarks
+- DevOps - Docker, containerization
+- Reporting - Allure, HTML reports
+- Version Control - Git, GitHub
 
 ---
 
-## 📞 Contact
+## Contact
 
-**Your Name**  
-📧 Email: your.email@example.com  
-💼 LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)  
-🐙 GitHub: [github.com/yourusername](https://github.com/yourusername)
+**Ata Sahin**  
+Email: atasahin05@gmail.com  
+LinkedIn: [linkedin.com/in/ata-sahin](https://linkedin.com/in/ata-sahin)  
+GitHub: [github.com/AtaSahin](https://github.com/AtaSahin)
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [SauceDemo](https://www.saucedemo.com) - Test application
 - [Selenium](https://www.selenium.dev/) - Browser automation
@@ -420,10 +420,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<div align="center">
-
-**⭐ If you find this project useful, please consider giving it a star! ⭐**
-
-Made with ❤️ by a passionate QA Engineer
-
-</div>
+**If you find this project useful, please consider giving it a star.**
