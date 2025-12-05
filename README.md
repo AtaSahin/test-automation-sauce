@@ -234,34 +234,7 @@ Supported browsers:
 
 ## CI/CD Pipeline
 
-### GitHub Actions Workflow
-
-The project includes a comprehensive CI/CD pipeline that:
-
-1. Runs on every push to main/master branches
-2. Tests multiple Python versions (3.11, 3.12)
-3. Executes smoke tests first for fast feedback
-4. Runs full regression suite for comprehensive coverage
-5. Generates Allure reports automatically
-6. Deploys reports to GitHub Pages for easy access
-7. Runs daily scheduled tests at 2 AM UTC
-
-**View live test results:** `https://AtaSahin.github.io/sauce-test-automation/`
-
-### Pipeline Status
-
-![CI/CD Pipeline](https://github.com/AtaSahin/sauce-test-automation/actions/workflows/tests.yml/badge.svg)
-
----
-
 ## Docker Support
-
-### Why Docker?
-
-- **Consistent Environment** - Same setup across all machines
-- **No Local Dependencies** - Chrome, ChromeDriver included
-- **CI/CD Ready** - Perfect for automated pipelines
-- **Isolated Execution** - No conflicts with local setup
 
 ### Docker Commands
 
@@ -311,9 +284,6 @@ docker-compose down
 - Timeline showing execution timeline for performance analysis
 - Test Suites organized by features and stories
 
-### Sample Report
-
-![Allure Report](docs/images/allure-report-overview.png)
 
 ---
 
