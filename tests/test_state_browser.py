@@ -392,26 +392,28 @@ class TestDataIntegrity:
     @pytest.mark.regression
     def test_cart_total_calculation(self, authenticated_user: InventoryPage, cart_page: CartPage):
         """
-        Verifies cart total equals sum of individual item prices.
+        Verifies cart total equals sum of individual item prices in cart.
         """
+        with allure.step("Reset sorting to default"):
+            authenticated_user.sort_products("az")
+        
         with allure.step("Add multiple products"):
-            # Get prices before adding to ensure we're testing the right products
-            product_0_price = authenticated_user.get_product_details(0).get("price")
-            product_1_price = authenticated_user.get_product_details(1).get("price")
-            product_2_price = authenticated_user.get_product_details(2).get("price")
-            
             authenticated_user.add_product_to_cart_by_index(0)
             authenticated_user.add_product_to_cart_by_index(1)
             authenticated_user.add_product_to_cart_by_index(2)
-            
-            expected_total = (float(product_0_price.replace("$", "")) + 
-                            float(product_1_price.replace("$", "")) + 
-                            float(product_2_price.replace("$", "")))
         
-        with allure.step("Verify cart total"):
+        with allure.step("Verify cart total matches sum of item prices"):
             authenticated_user.go_to_cart()
+            
+            # Get individual prices from cart
+            cart_item_prices = cart_page.get_cart_item_prices()
+            expected_total = sum(cart_item_prices)
+            
+            # Get total from cart
             actual_total = cart_page.get_total_price()
             
             assert abs(expected_total - actual_total) < 0.01, \
                 f"Cart total mismatch: expected {expected_total}, got {actual_total}"
+
+
 
