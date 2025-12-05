@@ -1,0 +1,71 @@
+version: "3.8"
+
+services:
+  selenium-hub:
+    image: selenium/hub:latest
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+      - "4442:4442"
+      - "4443:4443"
+    environment:
+      - SE_SESSION_REQUEST_TIMEOUT=300
+      - SE_NODE_SESSION_TIMEOUT=300
+    networks:
+      - test-network
+
+  chrome:
+    image: selenium/node-chrome:latest
+    container_name: chrome-node
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=5
+    shm_size: 2gb
+    networks:
+      - test-network
+
+  firefox:
+    image: selenium/node-firefox:latest
+    container_name: firefox-node
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=5
+    shm_size: 2gb
+    networks:
+      - test-network
+
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test-runner
+    depends_on:
+      - selenium-hub
+      - chrome
+      - firefox
+    environment:
+      - BASE_URL=https://www.saucedemo.com
+      - BROWSER=chrome
+      - HEADLESS=true
+      - TIMEOUT=10
+      - SELENIUM_REMOTE_URL=http://selenium-hub:4444/wd/hub
+    volumes:
+      - ./allure-results:/app/allure-results
+      - ./test-results:/app/test-results
+      - ./screenshots:/app/screenshots
+      - ./logs:/app/logs
+    networks:
+      - test-network
+    command: pytest -v --tb=short
+
+networks:
+  test-network:
+    driver: bridge
