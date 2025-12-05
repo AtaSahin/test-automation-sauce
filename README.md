@@ -1,6 +1,5 @@
 # SauceDemo Test Automation Framework
 
-[![CI/CD Pipeline](https://github.com/AtaSahin/sauce-test-automation/actions/workflows/tests.yml/badge.svg)](https://github.com/AtaSahin/sauce-test-automation/actions)
 [![Python Version](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/downloads/)
 [![Selenium](https://img.shields.io/badge/selenium-4.x-green)](https://www.selenium.dev/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -246,11 +245,10 @@ The project includes a comprehensive CI/CD pipeline that:
 6. Deploys reports to GitHub Pages for easy access
 7. Runs daily scheduled tests at 2 AM UTC
 
-**View live test results:** `https://AtaSahin.github.io/sauce-test-automation/`
-
 ### Pipeline Status
 
-![CI/CD Pipeline](https://github.com/AtaSahin/sauce-test-automation/actions/workflows/tests.yml/badge.svg)
+The pipeline is configured to run automatically on GitHub Actions.
+
 
 ---
 
