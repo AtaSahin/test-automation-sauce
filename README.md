@@ -10,11 +10,11 @@ Professional end-to-end test automation framework for [SauceDemo](https://www.sa
 
 ---
 
-## Test Execution Report
+## Reporting
 
 Allure Report Overview
 
-Example test execution report with detailed metrics, trends, and failure analysis.
+Detailed report view generated after example test run.
 
 ---
 
@@ -233,6 +233,25 @@ Supported browsers:
 ---
 
 ## CI/CD Pipeline
+
+### GitHub Actions Workflow
+
+The project includes a comprehensive CI/CD pipeline that:
+
+1. Runs on every push to main/master branches
+2. Tests multiple Python versions (3.11, 3.12)
+3. Executes smoke tests first for fast feedback
+4. Runs full regression suite for comprehensive coverage
+5. Generates Allure reports automatically
+6. Deploys reports to GitHub Pages for easy access
+7. Runs daily scheduled tests at 2 AM UTC
+
+### Pipeline Status
+
+The pipeline is configured to run automatically on GitHub Actions.
+
+
+---
 
 ## Docker Support
 
