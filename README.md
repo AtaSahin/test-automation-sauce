@@ -1,6 +1,6 @@
 # SauceDemo Test Automation Framework
 
-[![CI/CD Pipeline](https://github.com/AtaSahin/sauce-test-automation/actions/workflows/tests.yml/badge.svg)](https://github.com/AtaSahin/sauce-test-automation/actions)
+CI/CD Pipeline
 [![Python Version](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/downloads/)
 [![Selenium](https://img.shields.io/badge/selenium-4.x-green)](https://www.selenium.dev/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -12,7 +12,7 @@ Professional end-to-end test automation framework for [SauceDemo](https://www.sa
 
 ## Test Execution Report
 
-![Allure Report Overview](docs/images/allure-report-overview.png)
+Allure Report Overview
 
 Example test execution report with detailed metrics, trends, and failure analysis.
 
