@@ -1,0 +1,12 @@
+BASE_URL=https://www.saucedemo.com
+BROWSER=chrome
+HEADLESS=false
+TIMEOUT=10
+SCREENSHOT_ON_FAILURE=true
+
+STANDARD_USER=standard_user
+LOCKED_OUT_USER=locked_out_user
+PROBLEM_USER=problem_user
+PERFORMANCE_GLITCH_USER=performance_glitch_user
+PASSWORD=secret_sauce
+
