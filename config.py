@@ -23,6 +23,8 @@ class Config:
     LOCKED_OUT_USER: str = os.getenv("LOCKED_OUT_USER", "locked_out_user")
     PROBLEM_USER: str = os.getenv("PROBLEM_USER", "problem_user")
     PERFORMANCE_GLITCH_USER: str = os.getenv("PERFORMANCE_GLITCH_USER", "performance_glitch_user")
+    ERROR_USER: str = os.getenv("ERROR_USER", "error_user")
+    VISUAL_USER: str = os.getenv("VISUAL_USER", "visual_user")
     PASSWORD: str = os.getenv("PASSWORD", "secret_sauce")
     
     @classmethod
@@ -31,7 +33,7 @@ class Config:
         Returns username and password for specified user type.
         
         Args:
-            user_type: Type of user (standard, locked_out, problem, performance_glitch)
+            user_type: Type of user (standard, locked_out, problem, performance_glitch, error, visual)
             
         Returns:
             Dictionary containing username and password
@@ -40,7 +42,9 @@ class Config:
             "standard": cls.STANDARD_USER,
             "locked_out": cls.LOCKED_OUT_USER,
             "problem": cls.PROBLEM_USER,
-            "performance_glitch": cls.PERFORMANCE_GLITCH_USER
+            "performance_glitch": cls.PERFORMANCE_GLITCH_USER,
+            "error": cls.ERROR_USER,
+            "visual": cls.VISUAL_USER
         }
         
         return {

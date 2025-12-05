@@ -6,6 +6,10 @@ markers =
     cart: Shopping cart tests
     checkout: Checkout flow tests
     ui: User interface tests
+    security: Security and vulnerability tests
+    accessibility: Accessibility and keyboard navigation tests
+    user_types: Tests for different user types (standard, problem, error, etc.)
+    state: State management and session tests
 
 testpaths = tests
 python_files = test_*.py
