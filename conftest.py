@@ -37,6 +37,24 @@ def driver() -> Generator[webdriver.Remote, None, None]:
         options.add_argument("--disable-gpu")
         options.add_argument("--window-size=1920,1080")
         
+        # Disable all password-related pop-ups and warnings
+        prefs = {
+            "credentials_enable_service": False,
+            "profile.password_manager_enabled": False,
+            "profile.password_manager_leak_detection": False,
+            "autofill.profile_enabled": False,
+            "profile.default_content_setting_values.notifications": 2
+        }
+        options.add_experimental_option("prefs", prefs)
+        
+        # Suppress automation warnings and info bars
+        options.add_experimental_option("excludeSwitches", ["enable-automation", "enable-logging"])
+        options.add_experimental_option("useAutomationExtension", False)
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_argument("--disable-infobars")
+        options.add_argument("--disable-notifications")
+        options.add_argument("--disable-save-password-bubble")
+        
         driver_instance = webdriver.Chrome(
             service=ChromeService(ChromeDriverManager().install()),
             options=options
