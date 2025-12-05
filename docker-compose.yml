@@ -1,71 +1,73 @@
-version: "3.8"
+version: '3.8'
 
 services:
+  # Main test runner service
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: saucedemo-tests
+    environment:
+      - HEADLESS=true
+      - BROWSER=chrome
+      - TIMEOUT=10
+      - SCREENSHOT_ON_FAILURE=true
+    volumes:
+      - ./allure-results:/app/allure-results
+      - ./allure-report:/app/allure-report
+      - ./test-results:/app/test-results
+      - ./screenshots:/app/screenshots
+    command: >
+      sh -c "pytest tests/ -v --tb=short --alluredir=allure-results &&
+             allure generate allure-results --clean -o allure-report"
+    networks:
+      - test-network
+
+  # Allure report server
+  allure-server:
+    image: frankescobar/allure-docker-service:latest
+    container_name: allure-report-server
+    ports:
+      - "5050:5050"
+    environment:
+      - CHECK_RESULTS_EVERY_SECONDS=3
+      - KEEP_HISTORY=1
+    volumes:
+      - ./allure-results:/app/allure-results
+      - ./allure-report:/app/default-reports
+    networks:
+      - test-network
+    depends_on:
+      - test-runner
+
+  # Selenium Grid Hub (Optional - for parallel execution)
   selenium-hub:
     image: selenium/hub:latest
     container_name: selenium-hub
     ports:
       - "4444:4444"
-      - "4442:4442"
-      - "4443:4443"
-    environment:
-      - SE_SESSION_REQUEST_TIMEOUT=300
-      - SE_NODE_SESSION_TIMEOUT=300
     networks:
       - test-network
 
-  chrome:
+  # Chrome Node for Grid
+  chrome-node:
     image: selenium/node-chrome:latest
     container_name: chrome-node
-    depends_on:
-      - selenium-hub
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_NODE_MAX_SESSIONS=5
-    shm_size: 2gb
-    networks:
-      - test-network
-
-  firefox:
-    image: selenium/node-firefox:latest
-    container_name: firefox-node
     depends_on:
       - selenium-hub
-    environment:
-      - SE_EVENT_BUS_HOST=selenium-hub
-      - SE_EVENT_BUS_PUBLISH_PORT=4442
-      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_NODE_MAX_SESSIONS=5
-    shm_size: 2gb
     networks:
       - test-network
-
-  test-runner:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: test-runner
-    depends_on:
-      - selenium-hub
-      - chrome
-      - firefox
-    environment:
-      - BASE_URL=https://www.saucedemo.com
-      - BROWSER=chrome
-      - HEADLESS=true
-      - TIMEOUT=10
-      - SELENIUM_REMOTE_URL=http://selenium-hub:4444/wd/hub
-    volumes:
-      - ./allure-results:/app/allure-results
-      - ./test-results:/app/test-results
-      - ./screenshots:/app/screenshots
-      - ./logs:/app/logs
-    networks:
-      - test-network
-    command: pytest -v --tb=short
 
 networks:
   test-network:
     driver: bridge
+
+volumes:
+  allure-results:
+  allure-report:
+  test-results:
+  screenshots:
