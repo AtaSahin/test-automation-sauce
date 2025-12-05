@@ -96,4 +96,9 @@ class LoginPage(BasePage):
             True if on login page, False otherwise
         """
         return self.is_element_present(self._LOGIN_BUTTON)
+    
+    def clear_error(self) -> None:
+        """Alias for clear_error_message"""
+        return self.clear_error_message()
+
 

@@ -74,6 +74,15 @@ class CheckoutPage(BasePage):
         self.fill_checkout_information(first_name, last_name, postal_code)
         self.click_continue()
     
+    # Alias methods for test compatibility
+    def fill_checkout_form(self, first_name: str, last_name: str, postal_code: str) -> None:
+        """Alias for fill_checkout_information"""
+        return self.fill_checkout_information(first_name, last_name, postal_code)
+    
+    def continue_to_next_step(self) -> None:
+        """Alias for click_continue"""
+        return self.click_continue()
+    
     def cancel_checkout(self) -> None:
         """
         Aborts checkout process and returns to cart.

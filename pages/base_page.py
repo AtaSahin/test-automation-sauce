@@ -21,6 +21,15 @@ class BasePage:
         self.driver = driver
         self.wait = WebDriverWait(driver, Config.TIMEOUT)
         self.config = Config
+        self.base_url = Config.BASE_URL  # Add base_url property
+    
+    def wait_for_element_visible(self, locator: Tuple[str, str], timeout: int = None) -> WebElement:
+        """Alias for find_element - waits for element to be visible and returns it"""
+        wait = WebDriverWait(self.driver, timeout or Config.TIMEOUT)
+        return wait.until(
+            EC.visibility_of_element_located(locator),
+            message=f"Element {locator} not visible within {timeout or Config.TIMEOUT} seconds"
+        )
     
     def find_element(self, locator: Tuple[str, str]) -> WebElement:
         """

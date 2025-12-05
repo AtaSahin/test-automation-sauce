@@ -31,7 +31,8 @@ class TestStateManagement:
         
         with allure.step("Refresh the page"):
             driver.refresh()
-            authenticated_user.wait_for_page_load()
+            # Wait for page to reload by checking URL contains inventory
+            authenticated_user.wait_for_url_contains("inventory.html", timeout=10)
         
         with allure.step("Verify cart count persists"):
             # Users expect cart to persist across sessions to prevent lost sales
@@ -224,7 +225,7 @@ class TestBrowserNavigation:
         
         with allure.step("Navigate directly to cart via URL"):
             driver.get(f"{base_url}/cart.html")
-            cart_page.wait_for_page_load()
+            cart_page.wait_for_url_contains("cart.html", timeout=10)
         
         with allure.step("Verify cart page loads with items"):
             assert cart_page.is_cart_page_loaded()
@@ -262,7 +263,7 @@ class TestMultiWindowBehavior:
             driver.switch_to.window(windows[1])
             
             driver.get(f"{authenticated_user.base_url}/inventory.html")
-            authenticated_user.wait_for_page_load()
+            authenticated_user.wait_for_url_contains("inventory.html", timeout=10)
         
         with allure.step("Verify cart state in new tab"):
             # Cart data must sync across tabs to prevent user confusion
@@ -291,7 +292,7 @@ class TestMultiWindowBehavior:
         
         with allure.step("Navigate to inventory in new tab"):
             driver.get(f"{authenticated_user.base_url}/inventory.html")
-            authenticated_user.wait_for_page_load()
+            authenticated_user.wait_for_url_contains("inventory.html", timeout=10)
         
         with allure.step("Verify user is still authenticated"):
             # Should be on inventory page, not redirected to login
@@ -394,12 +395,18 @@ class TestDataIntegrity:
         Verifies cart total equals sum of individual item prices.
         """
         with allure.step("Add multiple products"):
-            prices = authenticated_user.get_all_product_prices()
+            # Get prices before adding to ensure we're testing the right products
+            product_0_price = authenticated_user.get_product_details(0).get("price")
+            product_1_price = authenticated_user.get_product_details(1).get("price")
+            product_2_price = authenticated_user.get_product_details(2).get("price")
+            
             authenticated_user.add_product_to_cart_by_index(0)
             authenticated_user.add_product_to_cart_by_index(1)
             authenticated_user.add_product_to_cart_by_index(2)
             
-            expected_total = prices[0] + prices[1] + prices[2]
+            expected_total = (float(product_0_price.replace("$", "")) + 
+                            float(product_1_price.replace("$", "")) + 
+                            float(product_2_price.replace("$", "")))
         
         with allure.step("Verify cart total"):
             authenticated_user.go_to_cart()
@@ -407,3 +414,4 @@ class TestDataIntegrity:
             
             assert abs(expected_total - actual_total) < 0.01, \
                 f"Cart total mismatch: expected {expected_total}, got {actual_total}"
+

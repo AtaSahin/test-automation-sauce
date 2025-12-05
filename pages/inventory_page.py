@@ -130,6 +130,19 @@ class InventoryPage(BasePage):
         remove_button = (By.ID, f"remove-{product_id}")
         self.click(remove_button)
     
+    @allure.step("Removing product from cart by index: {index}")
+    def remove_product_from_cart_by_index(self, index: int = 0) -> None:
+        """
+        Removes product from cart by its position in list.
+        
+        Args:
+            index: Zero-based position of product (0 = first product)
+        """
+        buttons = self.find_elements(self._REMOVE_BUTTONS)
+        if 0 <= index < len(buttons):
+            buttons[index].click()
+
+    
     def get_cart_badge_count(self) -> int:
         """
         Reads number displayed on cart badge.
