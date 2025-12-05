@@ -42,7 +42,6 @@ Detailed report view generated after example test run.
 - Test metrics including execution time and pass/fail rates
 
 ### CI/CD & DevOps
-- GitHub Actions for automated testing on every push
 - Docker support for containerized execution
 - Parallel execution with pytest-xdist
 - Scheduled daily test runs
@@ -234,24 +233,6 @@ Supported browsers:
 ---
 
 ## CI/CD Pipeline
-
-### GitHub Actions Workflow
-
-The project includes a comprehensive CI/CD pipeline that:
-
-1. Runs on every push to main/master branches
-2. Tests multiple Python versions (3.11, 3.12)
-3. Executes smoke tests first for fast feedback
-4. Runs full regression suite for comprehensive coverage
-5. Generates Allure reports automatically
-6. Deploys reports to GitHub Pages for easy access
-7. Runs daily scheduled tests at 2 AM UTC
-
-### Pipeline Status
-
-The pipeline is configured to run automatically on GitHub Actions.
-
-
 ---
 
 ## Docker Support
@@ -410,4 +391,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**If you find this project useful, please consider giving it a star.**
+
