@@ -9,6 +9,8 @@ CI/CD Pipeline
 Professional end-to-end test automation framework for [SauceDemo](https://www.saucedemo.com) e-commerce application, demonstrating advanced QA automation skills including accessibility testing, security validation, state management, and CI/CD integration.
 
 ---
+![previewSauce](https://github.com/user-attachments/assets/891281ab-e05a-45f7-8bc1-d77ce839d7f7)
+
 
 ## Reporting
 
