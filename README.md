@@ -371,9 +371,9 @@ This project showcases expertise in:
 
 ## Contact
 
-**Ata Sahin**  
+**Adil Ata Sahin**  
 Email: atasahin05@gmail.com  
-LinkedIn: [linkedin.com/in/ata-sahin](https://linkedin.com/in/ata-sahin)  
+LinkedIn: [linkedin.com/in/ata-sahin](https://linkedin.com/in/adilatasahin)  
 GitHub: [github.com/AtaSahin](https://github.com/AtaSahin)
 
 ---
